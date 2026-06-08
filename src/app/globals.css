@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FFFFFF;
+  --surface: #F7F7F5;
+  --surface-light: #EFEFEB;
+  --border-color: #E0E0DC;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --accent: #1A1A1A;
+  --accent-hover: #444444;
+}
+
+.dark-theme {
+  --background: #0A0A0A;
+  --surface: #141414;
+  --surface-light: #1E1E1E;
+  --border-color: #2A2A2A;
+  --text-primary: #F5F5F5;
+  --text-secondary: #999999;
+  --accent: #F5F5F5;
+  --accent-hover: #CCCCCC;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background);
+  font-family: var(--font-inter), -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--text-primary);
+  color: var(--background);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@layer base {
+  h1, h2, h3 {
+    font-style: italic;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
