@@ -20,7 +20,7 @@ const navKeys = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useI18n();
+  const { locale, toggleLocale, t } = useI18n();
   const { itemCount, setIsOpen } = useCart();
 
   useEffect(() => {
@@ -33,64 +33,59 @@ export function Header() {
     <>
       <header className="fixed top-0 z-50 w-full bg-background">
         <div className="border-b border-border">
-          <Container className="flex h-16 items-center justify-between">
-            {/* Left: logo */}
-            <Link href="/" className="flex-shrink-0">
+          <Container className="relative flex h-16 items-center justify-between">
+            {/* Left: theme toggle (all), language picker (desktop only) */}
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <button
+                onClick={toggleLocale}
+                className="hidden sm:flex items-center gap-1.5 text-xs tracking-wide text-text-secondary transition-colors duration-fast hover:text-text-primary"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                {locale === "de" ? "DE" : "EN"}
+              </button>
+            </div>
+
+            {/* Center: logo (absolute centered) */}
+            <Link
+              href="/"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
               <span className="flex items-center font-display not-italic text-sm tracking-[0.2em] text-text-primary sm:text-2xl sm:tracking-[0.25em] whitespace-nowrap">
                 <span
                   className="inline-block transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{
-                    fontSize: scrolled ? "1.5rem" : undefined,
-                    transitionDuration: "800ms",
-                  }}
+                  style={{ fontSize: scrolled ? "1.5rem" : undefined, transitionDuration: "800ms" }}
                 >
                   E
                 </span>
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{
-                    maxWidth: scrolled ? 0 : "300px",
-                    opacity: scrolled ? 0 : 1,
-                    transitionDuration: scrolled ? "800ms" : "600ms",
-                  }}
+                  style={{ maxWidth: scrolled ? 0 : "300px", opacity: scrolled ? 0 : 1, transitionDuration: scrolled ? "800ms" : "600ms" }}
                 >
                   NZMANN
                 </span>
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{
-                    width: scrolled ? 0 : "0.25em",
-                    transitionDuration: "700ms",
-                  }}
+                  style={{ width: scrolled ? 0 : "0.25em", transitionDuration: "700ms" }}
                 />
                 <span
                   className="inline-block transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{
-                    maxWidth: scrolled ? "30px" : 0,
-                    opacity: scrolled ? 1 : 0,
-                    fontSize: scrolled ? "1.5rem" : undefined,
-                    transitionDuration: "600ms",
-                    transitionDelay: scrolled ? "500ms" : "0ms",
-                  }}
+                  style={{ maxWidth: scrolled ? "30px" : 0, opacity: scrolled ? 1 : 0, fontSize: scrolled ? "1.5rem" : undefined, transitionDuration: "600ms", transitionDelay: scrolled ? "500ms" : "0ms" }}
                 >
                   ·
                 </span>
                 <span
                   className="inline-block transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{
-                    fontSize: scrolled ? "1.5rem" : undefined,
-                    transitionDuration: "800ms",
-                  }}
+                  style={{ fontSize: scrolled ? "1.5rem" : undefined, transitionDuration: "800ms" }}
                 >
                   E
                 </span>
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{
-                    maxWidth: scrolled ? 0 : "300px",
-                    opacity: scrolled ? 0 : 1,
-                    transitionDuration: scrolled ? "800ms" : "600ms",
-                  }}
+                  style={{ maxWidth: scrolled ? 0 : "300px", opacity: scrolled ? 0 : 1, transitionDuration: scrolled ? "800ms" : "600ms" }}
                 >
                   DELSTEINE
                 </span>
@@ -99,7 +94,6 @@ export function Header() {
 
             {/* Right: cart + mobile menu */}
             <div className="flex items-center gap-3 sm:gap-4">
-              <span className="hidden sm:block"><ThemeToggle /></span>
               <button
                 onClick={() => setIsOpen(true)}
                 className="relative text-text-primary transition-colors duration-fast hover:text-text-secondary"
