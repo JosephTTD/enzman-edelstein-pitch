@@ -64,15 +64,15 @@ export default function CheckoutPage() {
         {t("checkout.title")}
       </h1>
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
-        {/* Left: form */}
-        <div>
+      <div className="grid gap-10 lg:grid-cols-[1fr_400px]">
+        {/* Form */}
+        <div className="order-2 lg:order-1">
           {/* Shipping */}
           <div>
             <h2 className="text-xs uppercase tracking-[0.15em] text-text-secondary mb-6">
               {t("checkout.shipping")}
             </h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="text-xs text-text-secondary">{t("checkout.firstname")}</span>
                 <input
@@ -87,21 +87,21 @@ export default function CheckoutPage() {
                   className="mt-1 block w-full border border-border bg-background px-4 py-3 text-sm text-text-primary outline-none focus:border-text-primary transition-colors"
                 />
               </label>
-              <label className="block col-span-2">
+              <label className="block sm:col-span-2">
                 <span className="text-xs text-text-secondary">{t("checkout.email")}</span>
                 <input
                   type="email"
                   className="mt-1 block w-full border border-border bg-background px-4 py-3 text-sm text-text-primary outline-none focus:border-text-primary transition-colors"
                 />
               </label>
-              <label className="block col-span-2">
+              <label className="block sm:col-span-2">
                 <span className="text-xs text-text-secondary">{t("checkout.phone")}</span>
                 <input
                   type="tel"
                   className="mt-1 block w-full border border-border bg-background px-4 py-3 text-sm text-text-primary outline-none focus:border-text-primary transition-colors"
                 />
               </label>
-              <label className="block col-span-2">
+              <label className="block sm:col-span-2">
                 <span className="text-xs text-text-secondary">{t("checkout.address")}</span>
                 <input
                   type="text"
@@ -122,7 +122,7 @@ export default function CheckoutPage() {
                   className="mt-1 block w-full border border-border bg-background px-4 py-3 text-sm text-text-primary outline-none focus:border-text-primary transition-colors"
                 />
               </label>
-              <label className="block col-span-2">
+              <label className="block sm:col-span-2">
                 <span className="text-xs text-text-secondary">{t("checkout.country")}</span>
                 <select className="mt-1 block w-full border border-border bg-background px-4 py-3 text-sm text-text-primary outline-none focus:border-text-primary transition-colors">
                   <option>Deutschland</option>
@@ -159,8 +159,8 @@ export default function CheckoutPage() {
           </p>
         </div>
 
-        {/* Right: order summary */}
-        <div>
+        {/* Order summary */}
+        <div className="order-1 lg:order-2">
           <div className="border border-border p-6 sticky top-32">
             <h2 className="text-xs uppercase tracking-[0.15em] text-text-secondary mb-6">
               {t("checkout.summary")}

@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useI18n } from "@/lib/i18n";
 
 const navItems = [
   { label: "Kollektion", href: "/kollektion" },
   { label: "Edelsteinsorten", href: "/kollektion?category=edelsteinsorten" },
-  { label: "Kat Florence", href: "/kollektion?category=kat-florence" },
   { label: "Schmuck", href: "/kollektion?category=schmuck" },
   { label: "Wissen", href: "/wissen" },
   { label: "Über Uns", href: "/ueber-uns" },
@@ -20,16 +20,16 @@ export function MobileNav({
   open: boolean;
   onClose: () => void;
 }) {
+  const { locale, toggleLocale } = useI18n();
+
   return (
     <>
-      {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[60] bg-black/40 transition-opacity duration-200 lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={onClose}
       />
-      {/* Panel */}
       <div
         className={`fixed right-0 top-0 z-[70] h-full w-80 bg-background transition-transform duration-200 ease-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
@@ -60,6 +60,19 @@ export function MobileNav({
           <div className="flex items-center justify-between pt-6">
             <span className="text-xs uppercase tracking-[0.1em] text-text-secondary">Theme</span>
             <ThemeToggle />
+          </div>
+          <div className="flex items-center justify-between pt-4">
+            <span className="text-xs uppercase tracking-[0.1em] text-text-secondary">Sprache</span>
+            <button
+              onClick={toggleLocale}
+              className="flex items-center gap-1.5 text-xs tracking-wide text-text-secondary transition-colors duration-fast hover:text-text-primary"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              {locale === "de" ? "DE" : "EN"}
+            </button>
           </div>
         </nav>
       </div>
