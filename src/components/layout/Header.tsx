@@ -54,13 +54,16 @@ export function Header() {
               href="/"
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
-              {/* Mobile: always show abbreviation */}
-              <span className="flex items-baseline font-display not-italic text-xl tracking-[0.25em] text-text-primary sm:hidden whitespace-nowrap">
-                E·E
-              </span>
-              {/* Desktop: magnetic collapse on scroll */}
-              <span className="hidden sm:flex items-baseline font-display not-italic text-2xl tracking-[0.25em] text-text-primary whitespace-nowrap">
-                <span className="inline-block">E</span>
+              <span className="flex items-center font-display not-italic text-sm tracking-[0.2em] text-text-primary sm:text-2xl sm:tracking-[0.25em] whitespace-nowrap">
+                <span
+                  className="inline-block transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{
+                    fontSize: scrolled ? "1.5rem" : undefined,
+                    transitionDuration: "800ms",
+                  }}
+                >
+                  E
+                </span>
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
@@ -83,13 +86,22 @@ export function Header() {
                   style={{
                     maxWidth: scrolled ? "30px" : 0,
                     opacity: scrolled ? 1 : 0,
+                    fontSize: scrolled ? "1.5rem" : undefined,
                     transitionDuration: "600ms",
                     transitionDelay: scrolled ? "500ms" : "0ms",
                   }}
                 >
                   ·
                 </span>
-                <span className="inline-block">E</span>
+                <span
+                  className="inline-block transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{
+                    fontSize: scrolled ? "1.5rem" : undefined,
+                    transitionDuration: "800ms",
+                  }}
+                >
+                  E
+                </span>
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
@@ -105,7 +117,7 @@ export function Header() {
 
             {/* Right: theme toggle + basket + mobile menu */}
             <div className="flex items-center gap-3 sm:gap-4">
-              <span className="hidden sm:block"><ThemeToggle /></span>
+              <ThemeToggle />
               <button
                 onClick={() => setIsOpen(true)}
                 className="relative text-text-primary transition-colors duration-fast hover:text-text-secondary"
