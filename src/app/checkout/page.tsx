@@ -59,7 +59,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <Container className="py-12">
+    <Container className="py-12 overflow-hidden">
       <h1 className="font-display text-heading-2 text-text-primary mb-10">
         {t("checkout.title")}
       </h1>
@@ -161,7 +161,7 @@ export default function CheckoutPage() {
 
         {/* Order summary */}
         <div className="order-1 lg:order-2">
-          <div className="border border-border p-6 sticky top-32">
+          <div className="border border-border p-4 sm:p-6 sticky top-32 overflow-hidden">
             <h2 className="text-xs uppercase tracking-[0.15em] text-text-secondary mb-6">
               {t("checkout.summary")}
             </h2>
@@ -206,7 +206,7 @@ export default function CheckoutPage() {
               </div>
               <div className="flex justify-between border-t border-border pt-3 mt-3">
                 <span className="font-medium text-text-primary">{t("cart.total")}</span>
-                <span className="font-display text-xl text-text-primary">{formatPrice(total)}</span>
+                <span className="font-display text-lg sm:text-xl text-text-primary">{formatPrice(total)}</span>
               </div>
             </div>
 
