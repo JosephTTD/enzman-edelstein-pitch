@@ -23,7 +23,7 @@ export function EditorialBanner() {
               Die Kunst der Edelsteinkunde
             </h2>
             <p className="mt-4 text-base leading-relaxed text-text-secondary">
-              Farbe, Reinheit, Schliff und Karat — die vier Säulen der
+              Farbe, Reinheit, Schliff und Karat - die vier Säulen der
               Edelsteinbewertung. Verstehen Sie, was einen außergewöhnlichen
               Stein von einem gewöhnlichen unterscheidet.
             </p>

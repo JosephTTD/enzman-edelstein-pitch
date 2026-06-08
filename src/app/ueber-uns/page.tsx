@@ -21,7 +21,7 @@ const values = [
   {
     title: "Persönliche Beratung",
     description:
-      "Ob Sammlerstück, Geschenk oder Kapitalanlage — wir beraten Sie individuell und finden den perfekten Stein für Ihren Anlass.",
+      "Ob Sammlerstück, Geschenk oder Kapitalanlage - wir beraten Sie individuell und finden den perfekten Stein für Ihren Anlass.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function UeberUnsPage() {
                 </p>
                 <p>
                   Unser Sortiment umfasst seltene Granate, Saphire, Turmaline,
-                  Tansanite und viele weitere Edelsteine in höchster Qualität —
+                  Tansanite und viele weitere Edelsteine in höchster Qualität -
                   für Sammler, als einzigartiges Geschenk oder als
                   wertbeständige Kapitalanlage.
                 </p>
@@ -105,7 +105,7 @@ export default function UeberUnsPage() {
               Lassen Sie sich beraten
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-base text-text-secondary">
-              Wir freuen uns auf Ihre Anfrage — ob telefonisch, per E-Mail oder
+              Wir freuen uns auf Ihre Anfrage - ob telefonisch, per E-Mail oder
               über unser Kontaktformular.
             </p>
             <div className="mt-8">

@@ -101,8 +101,8 @@ const translations = {
   "checkout.shippingcost": { de: "Versand", en: "Shipping" },
   "checkout.free": { de: "Kostenfrei", en: "Free" },
   "checkout.demo": {
-    de: "Dies ist eine Demo — keine echte Bestellung wird aufgegeben.",
-    en: "This is a demo — no real order will be placed.",
+    de: "Dies ist eine Demo - keine echte Bestellung wird aufgegeben.",
+    en: "This is a demo - no real order will be placed.",
   },
 
   // Filter

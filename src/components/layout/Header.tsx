@@ -36,16 +36,16 @@ export function Header() {
         <div className="border-b border-border">
           <Container className="relative flex h-16 items-center justify-between">
             {/* Left: language toggle */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <button
                 onClick={toggleLocale}
-                className="flex items-center gap-1.5 text-xs tracking-wide text-text-secondary transition-colors duration-fast hover:text-text-primary"
+                className="flex items-center gap-1 text-xs tracking-wide text-text-secondary transition-colors duration-fast hover:text-text-primary"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <circle cx="12" cy="12" r="10"/>
                   <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                 </svg>
-                {locale === "de" ? "DE" : "EN"}
+                <span className="hidden sm:inline">{locale === "de" ? "DE" : "EN"}</span>
               </button>
             </div>
 
@@ -54,10 +54,13 @@ export function Header() {
               href="/"
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
-              <span className="flex items-baseline font-display not-italic text-xl tracking-[0.25em] text-text-primary sm:text-2xl whitespace-nowrap">
-                {/* E */}
+              {/* Mobile: always show abbreviation */}
+              <span className="flex items-baseline font-display not-italic text-xl tracking-[0.25em] text-text-primary sm:hidden whitespace-nowrap">
+                E·E
+              </span>
+              {/* Desktop: magnetic collapse on scroll */}
+              <span className="hidden sm:flex items-baseline font-display not-italic text-2xl tracking-[0.25em] text-text-primary whitespace-nowrap">
                 <span className="inline-block">E</span>
-                {/* NZMANN  — collapses */}
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
@@ -68,7 +71,6 @@ export function Header() {
                 >
                   NZMANN
                 </span>
-                {/* Space between words — collapses */}
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
@@ -76,7 +78,6 @@ export function Header() {
                     transitionDuration: "700ms",
                   }}
                 />
-                {/* Dot separator — fades in */}
                 <span
                   className="inline-block transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
@@ -88,9 +89,7 @@ export function Header() {
                 >
                   ·
                 </span>
-                {/* E */}
                 <span className="inline-block">E</span>
-                {/* DELSTEINE — collapses */}
                 <span
                   className="inline-block overflow-hidden transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{
@@ -105,8 +104,8 @@ export function Header() {
             </Link>
 
             {/* Right: theme toggle + basket + mobile menu */}
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <span className="hidden sm:block"><ThemeToggle /></span>
               <button
                 onClick={() => setIsOpen(true)}
                 className="relative text-text-primary transition-colors duration-fast hover:text-text-secondary"

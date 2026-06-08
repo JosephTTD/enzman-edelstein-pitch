@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Enzmann Edelsteine — Erlesene Edelsteine & Schmuck",
+  title: "Enzmann Edelsteine - Erlesene Edelsteine & Schmuck",
   description:
     "Entdecken Sie unsere handverlesene Kollektion seltener Edelsteine. Sammlerstücke, Geschenke und Kapitalanlagen von höchster Qualität.",
 };
@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <Providers>
           <Header />
-          <main className="min-h-screen pt-[112px] lg:pt-[112px]">{children}</main>
+          <main className="min-h-screen pt-16 lg:pt-[112px]">{children}</main>
           <Footer />
         </Providers>
       </body>

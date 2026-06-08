@@ -14,7 +14,7 @@ export function FeaturedGems() {
     <section className="py-16 lg:py-24">
       <Container>
         <SectionHeading subtitle="Ausgewählte Stücke" title="Unsere Highlights" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {featured.map((product, i) => (
             <AnimatedReveal key={product.slug} delay={i * 0.05}>
               <ProductCard product={product} />

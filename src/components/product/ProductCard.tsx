@@ -24,7 +24,7 @@ export function ProductCard({ product }: { product: Product }) {
         {hasMultipleImages && (
           <Image
             src={product.images[1]}
-            alt={`${product.title} — Zertifikat`}
+            alt={`${product.title} - Zertifikat`}
             fill
             className="object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />

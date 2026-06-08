@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navItems = [
   { label: "Kollektion", href: "/kollektion" },
@@ -56,6 +57,10 @@ export function MobileNav({
               {item.label}
             </Link>
           ))}
+          <div className="flex items-center justify-between pt-6">
+            <span className="text-xs uppercase tracking-[0.1em] text-text-secondary">Theme</span>
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </>
